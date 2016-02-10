@@ -1,7 +1,6 @@
 package is.robertreynisson.icequake.domain_layer;
 
 import is.robertreynisson.icequake.utils.Utils;
-import rx.Observable;
 import rx.subscriptions.CompositeSubscription;
 
 /**

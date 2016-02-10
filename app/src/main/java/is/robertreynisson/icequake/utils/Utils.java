@@ -1,9 +1,9 @@
 package is.robertreynisson.icequake.utils;
 
 import android.util.Log;
+
 import org.joda.time.DateTimeFieldType;
 import org.joda.time.LocalDateTime;
-import org.joda.time.Minutes;
 
 import java.util.Locale;
 
