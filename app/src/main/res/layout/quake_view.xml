@@ -1,0 +1,37 @@
+<is.robertreynisson.icequake.presenter_layer.quakeActivity.QuakeView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quake_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/quake_view_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ProgressBar
+            android:id="@+id/quake_view_progressbar"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/chart"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="450dp" />
+        <Button
+            android:id="@+id/quake_view_reload_button"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:text="@string/quake_view_reload_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</is.robertreynisson.icequake.presenter_layer.quakeActivity.QuakeView>

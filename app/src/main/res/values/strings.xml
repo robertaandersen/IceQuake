@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IceQuake</string>
+    <string name="action_settings">Settings</string>
+    <string name="quake_view_reload_button">Reload</string>
+    <string name="quake_view_header">Earthquakes in Iceland last 24hrs</string>
+    <string name="marker_view_location">Location :</string>
+    <string name="marker_view_title">Time:</string>
+    <string name="marker_view_depth">Depth:</string>
+</resources>
