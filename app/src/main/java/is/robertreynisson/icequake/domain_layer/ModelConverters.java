@@ -29,7 +29,7 @@ public class ModelConverters {
         return res;
     }
 
-    public static Date timeStampToDate(final String iso8601string) {
+    public static Date timeStampToDate(String iso8601string) {
         return  new DateTime(iso8601string).toDate();
     }
 }
