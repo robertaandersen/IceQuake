@@ -1,4 +1,4 @@
-package is.robertreynisson.icequake.presenter_layer;
+package is.robertreynisson.icequake.presenter_layer.barchart;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;

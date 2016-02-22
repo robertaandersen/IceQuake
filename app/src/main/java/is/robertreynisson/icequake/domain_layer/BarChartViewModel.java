@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import is.robertreynisson.icequake.presenter_layer.MainActivity;
+import is.robertreynisson.icequake.presenter_layer.barchart.MainActivity;
 import is.robertreynisson.icequake.presenter_layer.models.Quake;
 import is.robertreynisson.icequake.utils.Utils;
 import rx.Observable;
