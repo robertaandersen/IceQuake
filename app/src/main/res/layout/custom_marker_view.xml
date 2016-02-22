@@ -5,7 +5,7 @@
     android:id="@+id/markerview"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/backgroundColor"
+    android:background="@color/windowBackground"
     android:elevation="10dp"
     card_view:cardCornerRadius="4dp"
     card_view:cardUseCompatPadding="true">
