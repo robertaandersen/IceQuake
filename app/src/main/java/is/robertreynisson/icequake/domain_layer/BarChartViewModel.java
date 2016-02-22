@@ -14,8 +14,8 @@ import rx.subscriptions.CompositeSubscription;
 /**
  * Created by robert on 9.2.2016.
  */
-public class QuakeViewModel extends AbstractViewModel {
-    private static final String TAG = QuakeViewModel.class.getSimpleName();
+public class BarChartViewModel extends AbstractViewModel {
+    private static final String TAG = BarChartViewModel.class.getSimpleName();
 
     public final BehaviorSubject<String> time = BehaviorSubject.create();
     public final BehaviorSubject<List<Quake>> quakes = BehaviorSubject.create();

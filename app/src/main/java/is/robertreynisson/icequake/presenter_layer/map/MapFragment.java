@@ -1,5 +1,4 @@
-package is.robertreynisson.icequake.presenter_layer.quakeActivity;
-
+package is.robertreynisson.icequake.presenter_layer.map;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,35 +7,35 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import is.robertreynisson.icequake.R;
-import is.robertreynisson.icequake.domain_layer.QuakeViewModel;
+import is.robertreynisson.icequake.domain_layer.MapViewModel;
 import is.robertreynisson.icequake.utils.Utils;
 
 /**
- * Created by robert on 9.2.2016.
+ * Created by robert on 22.2.2016.
  */
-public class QuakeFragment extends Fragment {
+public class MapFragment extends Fragment {
     //Main purpose of Fragments is to maintain reference
     //to the View and View Model and react to OS events
-    private static final String TAG = QuakeFragment.class.getSimpleName();
+    private static final String TAG = MapFragment.class.getSimpleName();
 
     //The parentView Model provides Data
-    private QuakeViewModel viewModel;
+    private MapViewModel viewModel;
 
     //The View contains a reference to the Model
     //Handles input/output from/to UI
-    private QuakeView view;
+    private Mapview view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Initialize the fragments model
-        viewModel = new QuakeViewModel();
+        viewModel = new MapViewModel();
         Utils.logger(TAG, "onCreate");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.quake_view, container, false);
+        return inflater.inflate(R.layout.map_view, container, false);
     }
 
     @Override
@@ -44,7 +43,7 @@ public class QuakeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //Initialize the fragments parentView
-        this.view = (QuakeView) view.findViewById(R.id.quake_view);
+        this.view = (Mapview) view.findViewById(R.id.map_view);
 
         //Set the RxAndroid reactive subscribers
         //Subscriptions to Observable objects
@@ -80,5 +79,4 @@ public class QuakeFragment extends Fragment {
         viewModel.dispose();
         viewModel = null;
     }
-
 }

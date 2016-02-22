@@ -55,8 +55,8 @@ public class ChartFormatter {
         c.add(Calendar.HOUR, -24);
         List<Quake> filtererList = new ArrayList<>();
         Observable.from(quakeResponse)
-                .filter(quake1 -> quake1.Size > 0)
-                .filter(quake1 -> quake1.time.getTime() > c.getTime().getTime())
+                .filter(quake1 -> quake1.Size >= 0)
+                .take(20)
                 .subscribe(onNext -> filtererList.add(onNext));
         Collections.sort(filtererList);
         Collections.reverse(filtererList);
