@@ -11,6 +11,8 @@ public class Quake implements Comparable<Quake>{
     public double Size;
     public Date time;
     public Double depth;
+    public Double lat;
+    public Double longi;
 
     @Override
     public int compareTo(Quake another) {
