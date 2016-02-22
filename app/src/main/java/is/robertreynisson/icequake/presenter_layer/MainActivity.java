@@ -13,7 +13,7 @@ import is.robertreynisson.icequake.IceQuake;
 import is.robertreynisson.icequake.R;
 import is.robertreynisson.icequake.data_layer.ServiceAdapter;
 import is.robertreynisson.icequake.presenter_layer.map.MapFragment;
-import is.robertreynisson.icequake.presenter_layer.barchart.BarChartFragment;
+import is.robertreynisson.icequake.presenter_layer.barChart.BarChartFragment;
 
 public class MainActivity extends AppCompatActivity {
 

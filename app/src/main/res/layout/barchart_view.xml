@@ -1,4 +1,4 @@
-<is.robertreynisson.icequake.presenter_layer.barchart.BarChartView
+<is.robertreynisson.icequake.presenter_layer.barChart.BarChartView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/quake_view"
     android:layout_width="match_parent"
@@ -34,4 +34,4 @@
 
 
     </LinearLayout>
-</is.robertreynisson.icequake.presenter_layer.barchart.BarChartView>
+</is.robertreynisson.icequake.presenter_layer.barChart.BarChartView>
