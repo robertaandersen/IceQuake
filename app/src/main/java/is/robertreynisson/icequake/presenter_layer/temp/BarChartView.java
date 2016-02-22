@@ -1,4 +1,4 @@
-package is.robertreynisson.icequake.presenter_layer.barChart;
+package is.robertreynisson.icequake.presenter_layer.temp;
 
 import android.content.Context;
 import android.util.AttributeSet;
