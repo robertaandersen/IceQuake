@@ -1,4 +1,4 @@
-package is.robertreynisson.icequake.presenter_layer.temp;
+package is.robertreynisson.icequake.presenter_layer.barchart;
 
 
 import android.os.Bundle;

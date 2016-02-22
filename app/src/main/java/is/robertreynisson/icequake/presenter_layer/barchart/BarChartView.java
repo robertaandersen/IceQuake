@@ -1,4 +1,4 @@
-package is.robertreynisson.icequake.presenter_layer.temp;
+package is.robertreynisson.icequake.presenter_layer.barchart;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -16,7 +16,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import is.robertreynisson.icequake.R;
 import is.robertreynisson.icequake.domain_layer.BarChartViewModel;
-import is.robertreynisson.icequake.presenter_layer.barchart.MainActivity;
 import is.robertreynisson.icequake.presenter_layer.models.Quake;
 import is.robertreynisson.icequake.utils.ChartFormatter;
 import is.robertreynisson.icequake.utils.RxUIBinderUtil;
