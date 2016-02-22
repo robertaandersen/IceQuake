@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".presenter_layer.barchart.MainActivity"
+    tools:context=".presenter_layer.MainActivity"
     android:background="@color/windowBackground">
 
 

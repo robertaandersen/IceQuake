@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import is.robertreynisson.icequake.R;
 import is.robertreynisson.icequake.domain_layer.BarChartViewModel;
+import is.robertreynisson.icequake.presenter_layer.MainActivity;
 import is.robertreynisson.icequake.presenter_layer.models.Quake;
 import is.robertreynisson.icequake.utils.ChartFormatter;
 import is.robertreynisson.icequake.utils.RxUIBinderUtil;

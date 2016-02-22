@@ -1,4 +1,4 @@
-package is.robertreynisson.icequake.presenter_layer.barchart;
+package is.robertreynisson.icequake.presenter_layer;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
