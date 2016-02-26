@@ -1,7 +1,9 @@
 package is.robertreynisson.icequake.presenter_layer;
 
+
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,11 +17,13 @@ import is.robertreynisson.icequake.data_layer.ServiceAdapter;
 import is.robertreynisson.icequake.presenter_layer.barchart.BarChartFragment;
 import is.robertreynisson.icequake.presenter_layer.map.MapFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
 
     public static ServiceAdapter serviceAdapter;
     public static TextView updateTime;
+    private static FragmentManager fragmentManager;
+    public static MainActivity mainActivity;
     private TabLayout tablayout;
     private ViewPager viewPager;
 
@@ -28,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainActivity = this;
+
+        fragmentManager = getSupportFragmentManager();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         updateTime = (TextView) toolbar.findViewById(R.id.toolbar_time);
         setSupportActionBar(toolbar);
+
         serviceAdapter = new ServiceAdapter(IceQuake.getServerInfo());
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -80,4 +88,7 @@ public class MainActivity extends AppCompatActivity {
         serviceAdapter = new ServiceAdapter(IceQuake.getServerInfo());
     }
 
+    public static FragmentManager getChildFragmentManager() {
+        return fragmentManager;
+    }
 }
