@@ -3,8 +3,7 @@ package is.robertreynisson.icequake.presenter_layer;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,15 +16,14 @@ import is.robertreynisson.icequake.data_layer.ServiceAdapter;
 import is.robertreynisson.icequake.presenter_layer.barchart.BarChartFragment;
 import is.robertreynisson.icequake.presenter_layer.map.MapFragment;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
 
     public static ServiceAdapter serviceAdapter;
     public static TextView updateTime;
-    private static FragmentManager fragmentManager;
     public static MainActivity mainActivity;
     private TabLayout tablayout;
-    private ViewPager viewPager;
+    private static Fragment fragment;
 
 
     @Override
@@ -34,29 +32,55 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         mainActivity = this;
 
-        fragmentManager = getSupportFragmentManager();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         updateTime = (TextView) toolbar.findViewById(R.id.toolbar_time);
         setSupportActionBar(toolbar);
 
         serviceAdapter = new ServiceAdapter(IceQuake.getServerInfo());
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
         tablayout = (TabLayout) findViewById(R.id.tabs);
-        tablayout.setupWithViewPager(viewPager);
-
+        tablayout.addTab(tablayout.newTab().setText("List"));
+        tablayout.addTab(tablayout.newTab().setText("Map"));
+        tablayout.setOnTabSelectedListener(tabChange());
         if (getSupportActionBar() != null) getSupportActionBar().setTitle("Quakes");
+        fragment = new BarChartFragment();
+        setFragment();
 
 
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new BarChartFragment(), "ONE");
-        adapter.addFragment(new MapFragment(), "TWO");
-        viewPager.setAdapter(adapter);
+    private TabLayout.OnTabSelectedListener tabChange() {
+        return new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment = new BarChartFragment();
+                        break;
+                    case 1:
+                        fragment = new MapFragment();
+                        break;
+                }
+                setFragment();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        };
+    }
+
+    private void setFragment() {
+        if (fragment != null)
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment, fragment.getTag())
+                    .commit();
     }
 
 
@@ -86,9 +110,5 @@ public class MainActivity extends AppCompatActivity  {
     protected void onResume() {
         super.onResume();
         serviceAdapter = new ServiceAdapter(IceQuake.getServerInfo());
-    }
-
-    public static FragmentManager getChildFragmentManager() {
-        return fragmentManager;
     }
 }

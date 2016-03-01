@@ -2,12 +2,9 @@ package is.robertreynisson.icequake.presenter_layer.map;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.google.android.gms.maps.GoogleMap;
 
 import is.robertreynisson.icequake.R;
 import is.robertreynisson.icequake.domain_layer.MapViewModel;
@@ -16,19 +13,17 @@ import is.robertreynisson.icequake.utils.Utils;
 /**
  * Created by robert on 22.2.2016.
  */
-public class MapFragment extends Fragment{
+public class MapFragment extends Fragment {
     //Main purpose of Fragments is to maintain reference
     //to the View and View Model and react to OS events
     private static final String TAG = MapFragment.class.getSimpleName();
 
     //The parentView Model provides Data
     private MapViewModel viewModel;
+    private Mapview view;
 
     //The View contains a reference to the Model
     //Handles input/output from/to UI
-    private Mapview view;
-
-    public static FragmentManager fragmentManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +41,6 @@ public class MapFragment extends Fragment{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        fragmentManager = getChildFragmentManager();
 
         //Initialize the fragments parentView
         this.view = (Mapview) view.findViewById(R.id.map_view);
@@ -62,6 +56,7 @@ public class MapFragment extends Fragment{
     @Override
     public void onResume() {
         super.onResume();
+        view.onResume();
 
         //Connect the model to the parentView
         view.setViewModel(viewModel);
@@ -69,8 +64,11 @@ public class MapFragment extends Fragment{
 
     @Override
     public void onPause() {
-        super.onPause();
+        view.onPause();
         view.setViewModel(null);
+        super.onPause();
+
+
     }
 
     @Override
@@ -84,5 +82,17 @@ public class MapFragment extends Fragment{
         super.onDestroy();
         viewModel.dispose();
         viewModel = null;
+        view.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        view.onLowMemory();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 }

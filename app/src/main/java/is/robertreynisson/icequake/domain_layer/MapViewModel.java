@@ -1,6 +1,11 @@
 package is.robertreynisson.icequake.domain_layer;
 
+import java.util.List;
+
+import is.robertreynisson.icequake.presenter_layer.MainActivity;
+import is.robertreynisson.icequake.presenter_layer.models.Quake;
 import rx.Observable;
+import rx.Observer;
 import rx.subjects.BehaviorSubject;
 import rx.subscriptions.CompositeSubscription;
 
@@ -10,14 +15,18 @@ import rx.subscriptions.CompositeSubscription;
 public class MapViewModel extends AbstractViewModel {
 
     private static final String TAG = MapViewModel.class.getSimpleName();
-    BehaviorSubject<String> quakeData = BehaviorSubject.create();
+    BehaviorSubject<List<Quake>> quakeData = BehaviorSubject.create();
 
     @Override
     protected void subscribeToDataStoreInternal(CompositeSubscription compositeSubscription) {
+        compositeSubscription.add(
+                MainActivity.serviceAdapter.getQuakes()
+                        .map(ModelConverters::quakeModelFromAPI)
+                        .subscribe(quakeData));
 
     }
 
-    public Observable<String> quakeData() {
+    public Observable<List<Quake>> quakeData() {
         return quakeData;
     }
 }

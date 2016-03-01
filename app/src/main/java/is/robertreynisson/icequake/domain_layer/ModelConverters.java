@@ -1,5 +1,7 @@
 package is.robertreynisson.icequake.domain_layer;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeFieldType;
 import org.joda.time.DateTimeZone;
@@ -27,6 +29,7 @@ public class ModelConverters {
                     q.Size = result.getSize();
                     q.time = timeStampToDate(result.getTimestamp());
                     q.depth = result.getDepth();
+                    q.latLng = new LatLng(result.getLatitude(), result.getLongitude());
                     q.lat = result.getLatitude();
                     q.longi = result.getLongitude();
 
